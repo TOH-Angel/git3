@@ -1,0 +1,30 @@
+name: Verificación de sintaxis Python
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Instalar dependencias
+        run: |
+          pip install --upgrade pip
+
+      - name: Verificar errores de sintaxis
+        run: |
+          for file in $(git diff --name-only HEAD^ HEAD | grep '\.py$'); do
+            python -m py_compile $file || exit 1
+          done
