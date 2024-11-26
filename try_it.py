@@ -5,4 +5,3 @@ def sdjhnd()
     
 print(ahOAL)
 print(2)
-print(r)
