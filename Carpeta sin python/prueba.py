@@ -6,3 +6,4 @@ Prueba = esto es nada
 
 def hello_world()
     print("Hello, World!")
+    print("2")
