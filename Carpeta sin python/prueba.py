@@ -9,4 +9,3 @@ def hello_world()
     print("2")
     pri
     ayuida
-    fsd
